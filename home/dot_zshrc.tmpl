@@ -87,7 +87,7 @@ export GOBIN=$HOME/.local/bin
 export GOPATH=$HOME
 export GO111MODULE=on
 {{- if eq .chezmoi.os "darwin" }}
-export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_AUTO_UPDATE=0
 {{- end }}
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -97,19 +97,17 @@ export PSQLRC=$XDG_CONFIG_HOME/psql/psqlrc
 export RIPGREP_CONFIG_PATH=~/.config/ripgrep/config
 
 {{- if .personal }}
-
-export CHEZMOI_GITHUB_ACCESS_TOKEN={{ onepasswordRead "op://chezmoi/chezmoi GitHub API Token/credential" .onepasswordAccount | trim }}
+#export CHEZMOI_GITHUB_ACCESS_TOKEN={{ TODO: get this }}
 {{-   if eq .chezmoi.os "darwin" }}
-export HOMEBREW_GITHUB_API_TOKEN={{ onepasswordRead "op://Personal/Homebrew GitHub API Token/credential" .onepasswordAccount | trim }}
+#export HOMEBREW_GITHUB_API_TOKEN={{ TODO: get this }}
 {{-   end }}
 {{- end }}
 
 {{- if .flarm }}
 
-export OBSTACLE_ENV=${HOME}/src/obstacle/obstacle_toolchain
-export KEY_PATH="${HOME}/Development Secrets and Keys/current"
-export TOOLCHAIN_PATH=${HOME}/toolchain_bin
-export IDF_TOOLS_PATH=${TOOLCHAIN_PATH}/esp32
+#export OBSTACLE_ENV=${HOME}/src/obstacle/obstacle_toolchain
+#export KEY_PATH="${HOME}/Development Secrets and Keys/current"
+#export TOOLCHAIN_PATH=${HOME}/toolchain_bin
 {{- end }}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

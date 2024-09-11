@@ -1,7 +1,6 @@
 {{/* boolean feature tags */}}
 {{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
-{{- $flarm := false -}}{{/* true if this machine is used for FLARM */}}
-{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $headless := true -}}{{/* true if this machine does not have a screen and keyboard */}}
 {{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
 {{- "" -}}
 
@@ -34,9 +33,7 @@
 {{- end -}}
 
 {{- if not $ephemeral -}}
-{{-   if eq $hostname "legion" -}}
-{{-     $flarm = true -}}
-{{-   else if eq $hostname "thinkpad" -}}
+{{-   if eq $hostname "thinkpad" -}}
 {{-     $personal = true -}}
 {{-   else if eq $hostname "toms-laptop" -}}
 {{-     $personal = true -}}
@@ -54,19 +51,16 @@
 {{-   end -}}
 {{- end -}}
 
-{{- $email := "twpayne@gmail.com" -}}
-{{- if $flarm -}}
-{{-   $email = "tom.payne@flarm.com" -}}
-{{- end -}}
+# TODO make dynamic
+{{- $name := "Tariq Abusheikh" -}}
+{{- $email := "tariq.abusheikh@gmail.com" -}}
 
 [data]
     ephemeral = {{ $ephemeral }}
     email = {{ $email | quote }}
-    flarm = {{ $flarm }}
     headless = {{ $headless }}
     hostname = {{ $hostname | quote }}
     personal = {{ $personal }}
-    onepasswordAccount = "VBDXOA4MPVHONK5IIJVKUQGLXM"
     osid = {{ $osID | quote }}
     zshPlugins = [
         "per-directory-history",

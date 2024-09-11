@@ -1,10 +1,13 @@
-# github.com/twpayne/dotfiles
+# github.com/tariq86/chezmoi-dotfiles
 
-Tom Payne's dotfiles, managed with [`chezmoi`](https://github.com/twpayne/chezmoi).
+My personal dotfiles, managed with [`chezmoi`](https://github.com/twpayne/chezmoi).
 
-Install them with:
+Main changes from [upstream repo]():
 
-    chezmoi init twpayne
+- [ ] Remove all personal references (make env vars?)
+- [ ] Use Keeper CLI instead of 1Password
+- [ ] Remove other services I don't use
+- [ ]
 
 Personal secrets are stored in [1Password](https://1password.com) and you'll
 need the [1Password CLI](https://developer.1password.com/docs/cli/) installed.
